@@ -15,7 +15,8 @@
     "node": ">=20.0.0"
   },
   "scripts": {
-    "test": "npx kraken-node run"
+    "pretest": "kraken-node doctor",
+    "test": "kraken-node run"
   },
   "dependencies": {
     "chai": "^5.2.0",

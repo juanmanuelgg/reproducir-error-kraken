@@ -1,0 +1,19 @@
+name: reproducir-error-kraken
+
+services:
+  kraken:
+    container_name: kraken
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./reports:/home/node/tests/reports
+
+  fixed-kraken:
+    container_name: fixed-kraken
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./reports-sin-falla:/home/node/tests/reports
+      - ./custom/FileHelper.js:/home/node/tests/node_modules/kraken-node/lib/utils/FileHelper.js

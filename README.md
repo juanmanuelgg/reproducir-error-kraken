@@ -65,3 +65,9 @@ Además, el archivo `properties.json` contiene las credenciales necesarias para 
   "PASSWORD": "MISO4208"
 }
 ```
+
+## Reproducir el error en la creación de reportes
+
+```sh
+docker compose up
+```
