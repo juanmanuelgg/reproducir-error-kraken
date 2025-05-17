@@ -138,6 +138,7 @@ dist
 # Kraken files
 .kraken/
 reports/
+reports-partial-*/
 reports-sin-falla/
 
 *.png

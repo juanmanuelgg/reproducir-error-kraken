@@ -8,6 +8,25 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./reports:/home/node/tests/reports
+  
+  partial-fix-kraken-1:
+    container_name: partial-fix-kraken-1
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./reports-partial-1:/home/node/tests/reports
+      - ./custom/FileHelper.js:/home/node/tests/node_modules/kraken-node/lib/utils/FileHelper.js
+  
+  partial-fix-kraken-2:
+    container_name: partial-fix-kraken-2
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./reports-partial-2:/home/node/tests/reports
+      - ./custom/FileHelper.js:/home/node/tests/node_modules/kraken-node/lib/utils/FileHelper.js
+      - ./custom/ReporterIncomplete.js:/home/node/tests/node_modules/kraken-node/lib/reports/Reporter.js
 
   fixed-kraken:
     container_name: fixed-kraken
@@ -17,3 +36,4 @@ services:
     volumes:
       - ./reports-sin-falla:/home/node/tests/reports
       - ./custom/FileHelper.js:/home/node/tests/node_modules/kraken-node/lib/utils/FileHelper.js
+      - ./custom/Reporter.js:/home/node/tests/node_modules/kraken-node/lib/reports/Reporter.js
